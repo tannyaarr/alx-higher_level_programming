@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 number = 98
-name = "Battery Street"
+name = "Battery street"
 print(f"{number} {name}")
