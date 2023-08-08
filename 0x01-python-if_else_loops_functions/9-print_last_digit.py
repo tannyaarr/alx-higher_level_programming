@@ -4,4 +4,3 @@ def print_last_digit(number):
         number = -(number)
         print('{}'.format(number % 10), end='')
         return number % 10
-
