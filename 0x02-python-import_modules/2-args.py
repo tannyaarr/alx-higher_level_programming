@@ -10,5 +10,6 @@ if __name__ == "__main__":
         else:
             print('{} arguments:'.format(args_count))
 
-    for i, arg in enumerate(sys.argv[1:], start=1):
-            print('{}: {}'.format(i, arg))
+        if args_count > 0:
+            for i, arg in enumerate(sys.argv[1:], start=1):
+                print('{}: {}'.format(i, arg))
