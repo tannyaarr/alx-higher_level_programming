@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-exec("#pythoniscool\n")
+output = "#pythoniscool\n"
+open(1, 'w').write(output)
