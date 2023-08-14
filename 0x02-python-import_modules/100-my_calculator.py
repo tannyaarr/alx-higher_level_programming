@@ -11,7 +11,7 @@ if __name__ == "__main__":
         '-': sub, 
         '*': mul,
         '/': div
-        }
+    }
     if argv[2] in ops:
         a = int(argv[1])
         op = ops[argv[2]]
@@ -22,4 +22,4 @@ if __name__ == "__main__":
     else:
         print('Unknown operator. Available operators: +, -, * and /')
         exit(1)
-    exit(0)
+        exit(0)
