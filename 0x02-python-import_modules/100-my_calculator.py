@@ -11,12 +11,13 @@ if __name__ == "__main__":
         '-': sub, 
         '*': mul,
         '/': div
-    }
+        }
     if argv[2] in ops:
         a = int(argv[1])
         op = ops[argv[2]]
         b = int(argv[3])
         result = op(a, b)
+
         print('{:d} {:s} {:d} = {:d}'.format(a, argv[2], b, result))
     else:
         print('Unknown operator. Available operators: +, -, * and /')
