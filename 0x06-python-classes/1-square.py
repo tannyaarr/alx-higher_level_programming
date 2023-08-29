@@ -5,7 +5,12 @@
 class Square:
     """This class represents a square"""
 
+
+    """The size of the square"""
+
+
     __size = 0
+
 
 
     """Initializes a Square with given size"""
