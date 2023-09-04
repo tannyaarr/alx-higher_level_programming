@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-
+"""Define the class Rectangle based on -rectangle.py"""
 
 class Rectangle:
+    """This represents the class Rectangle"""
 
     number_of_instances = 0
     print_symbol = "#"
