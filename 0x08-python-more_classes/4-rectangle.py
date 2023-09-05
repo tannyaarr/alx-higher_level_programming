@@ -5,7 +5,6 @@
 class Rectangle:
     """This represents a the class Rectangle"""
 
-
     def __init__(self, width=0, height=0):
         self._width = 0
         self._height = 0
@@ -54,4 +53,3 @@ class Rectangle:
 
     def __repr__(self):
         return f"Rectangle({self._width}, {self._height})"
-
