@@ -5,7 +5,6 @@
 class Rectangle:
     """This represents the class Rectangle"""
 
-
     def __init__(self, width=0, height=0):
         self._width = 0
         self._height = 0
@@ -57,4 +56,3 @@ class Rectangle:
 
     def __del__(self):
         print("Bye rectangle...")
-
