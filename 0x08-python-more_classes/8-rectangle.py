@@ -5,7 +5,6 @@
 class Rectangle:
     """This represents the class Rectangle"""
 
-
     number_of_instances = 0
     print_symbol = "#"
 
@@ -76,4 +75,3 @@ class Rectangle:
             return rect_1
         else:
             return area_2
-
