@@ -8,9 +8,7 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = "#"
 
-
     """Initializes the width and height of the rectangle"""
-
 
     def __init__(self, width=0, height=0):
         self._width = 0
@@ -45,10 +43,7 @@ class Rectangle:
         else:
             self._height = value
 
-
     """calculates area and perimeter of the rectangle"""
-
-
 
     def area(self):
         return self._width * self._height
@@ -56,10 +51,8 @@ class Rectangle:
     def perimeter(self):
         return 2 * (self._width + self._height)
 
-    
     """print() and str() should print the rectangle with '#'"""
 
-    
     def __str__(self):
         if self._width == 0 or self._height == 0:
             return ""
@@ -68,24 +61,18 @@ class Rectangle:
             rectangle_str += str(self.print_symbol) * self._width + "\n"
         return rectangle_str[:-1]
 
-    
-    """repr() return a string representation of the rectangle to be able to recreate a new instance by using eval()"""
-    
+    """repr() return a string of the rectangle by  using eval()"""
 
     def __repr__(self):
         return f"Rectangle({self._width}, {self._height})"
 
-
     """prints a message when an instance of Rectangle is deleted"""
 
-    
     def __del__(self):
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
-
     """Static Method that returns the biggest Rectangle based on the area"""
-
 
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
@@ -102,7 +89,6 @@ class Rectangle:
             return area_2
 
     """ defines a class method"""
-
 
     @classmethod
     def square(cls, size=0):
