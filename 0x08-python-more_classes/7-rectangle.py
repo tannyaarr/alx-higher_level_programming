@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define the class Rectangle based on -rectangle.py"""
 
+
 class Rectangle:
     """This represents the class Rectangle"""
 
@@ -12,7 +13,7 @@ class Rectangle:
         self._height = 0
         self.width = width
         self.height = height
-        Rectangle.number_of_instances+= 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -39,6 +40,7 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self._height = value
+
     def area(self):
         return self._width * self._height
 
@@ -59,4 +61,3 @@ class Rectangle:
     def __del__(self):
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-
