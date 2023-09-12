@@ -4,8 +4,10 @@
 
 class MyList(list):
     """This represents MyList class"""
+
+    def __init__(self):
+        """Instatiation of MyList class"""
+        list.__init__(self)
+
     def print_sorted(self):
-        sorted_list = sorted(self)
-        for item in sorted_list:
-            print(item, end=' ')
-        print()
+            print(sorted(self))
