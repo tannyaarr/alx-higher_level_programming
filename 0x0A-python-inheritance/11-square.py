@@ -24,6 +24,8 @@ class Rectangle(BaseGeometry):
     """This class represents a Rectangle based on BaseGeometry"""
 
     def __init__(self, width, height):
+        """Initialization of height and weight takes place"""
+
         self.__weight = 0
         self.__height = 0
         self.integer_validator("width", width)
@@ -43,6 +45,8 @@ class Square(Rectangle):
     """This class represents a Square based on Rectangle"""
 
     def __init__(self, size):
+        """Initialization takes place of size"""
+
         super().__init__(size, size)
 
     def __str__(self):
