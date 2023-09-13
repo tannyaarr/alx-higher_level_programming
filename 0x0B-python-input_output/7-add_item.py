@@ -2,8 +2,6 @@
 """Adds all arguments to a Python list and save them to a file"""
 
 import sys
-import os
-import json
 """import sys and os  module"""
 
 
