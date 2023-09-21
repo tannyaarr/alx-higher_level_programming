@@ -62,26 +62,25 @@ class TestBase(unittest.TestCase):
 
     def test_save_to_file_empty_list(self):
         Rectangle.save_to_file([])
-        self.assertTrue(os,.path.exists("Rectangle.json"))
+        self.assertTrue(os.path.exists("Rectangle.json"))
 
     def test_save_to_file_none(self):
         Rectangle.save_to_file(None)
         self.assertTrue(os.path.exists("Rectangle.json"))
 
-    def test_from_json_string_empty(self):
-        json_string = ""
-        result = Base.from_json_string(json_string)
-        self.assertEqual(result, [])
+    def test_from_json_string_empty_list(self):
+        result = Base.from_json_string([])
+        self.assertEqual(result, "[]")
 
-    def test_from_json_string_none(self):
-        json_string = None
-        result = Base.from_json_string(json_string)
-        self.assertEqual(result, [])
+    def test_from_json_string_none_list(self):
+        result = Base.from_json_string(None)
+        self.assertEqual(result, "[]")
 
-    def test_from_json_string_valid_json(self):
-        json_string = '[{"name": "John", "age": 30}, {"name": "Jane", "age":n25}]'
-        expected_result = [{"name": "John", "age": 30}, {"name": "Jane", "age": 25}]
-        self.assertEqual(result, expected_result)
+    def test_from_json_string_valid_json_list(self):
+        input_list = [{"key1": "value1"}, {"key2": "value2"}]
+        result = Base.to_json_string(input_list)
+        expected = '[{"key1": "value1"}, {"key2": "value2"}]'
+        self.assertEqual(result, expected)
 
     def test_create_rectangle(self):
         data = {'width': 5, 'height': 10, 'id': 1}

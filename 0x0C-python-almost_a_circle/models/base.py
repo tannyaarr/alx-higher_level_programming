@@ -14,7 +14,7 @@ class Base:
 
     def __init__(self, id=None):
         """Initializes the id which is equal to None"""
-        
+
         if id is not None:
             self.id = id
         else:
@@ -23,7 +23,19 @@ class Base:
 
     @staticmethod
     """Static method that returns the JSON string representation of a list
-    of dictionaries"""
+    of dictionaries
+
+        Args:
+            list_dictionaries (list): A list of dictionaries to be converted
+            to a JSON string
+
+        Returns:
+            str: The JSON strin representation of the input list
+
+        Note:
+            If the input list is None or empty, the method returns "[]"
+
+    """
 
     def to_json_string(list_dictionaries):
         if list_dictionaries is None or len(list_dictionaries) == 0:
@@ -42,22 +54,22 @@ class Base:
             json_string = cla.to_json_string([obj.to_dictionary()
                 for obj in list_objs])
             f.write(json_string)
-    
+
     @staticmethod
     """Static method that returns list of JSON string representation
     json_string"""
-    
-    def from_json_string(json_string);
-    if json_string is None or len(json_string) == 0:
-        return []
-    return json.loads(json_string)
+
+    def from_json_string(json_string):
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
 
     @classmethod
     """Returns an instance with attributes already set"""
 
     def create(cls, **dictionary):
         if cls.__name__ == 'Rectangle':
-            dummy_instance = cls(1,1)
+            dummy_instance = cls(1, 1)
         elif cls.__name__ = 'Square':
             dummy.instance = cls(1)
         else:
