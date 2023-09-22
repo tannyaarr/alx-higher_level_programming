@@ -4,7 +4,7 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """This defines the inherited Square from Rectangle"""
+    """This defines the inherited Square class from Rectangle"""
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initialzation of the Rectangle class"""
@@ -34,10 +34,10 @@ class Square(Rectangle):
     def to_dictionary(self):
         """Returns the dictionary representation of a Square"""
         return {
-            'id': self.id,
-            'size': self.size,
-            'x': self.x,
-            'y': self.y
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
         }
 
     def __str__(self):
