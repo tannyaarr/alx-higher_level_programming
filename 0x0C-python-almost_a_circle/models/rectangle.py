@@ -19,7 +19,7 @@ class Rectangle(Base):
     @property
     def width(self):
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -60,7 +60,7 @@ class Rectangle(Base):
     def y(self, value):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
-        if  value < 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
@@ -70,12 +70,11 @@ class Rectangle(Base):
 
     def display(self):
         for _ in range(self.__height):
-            print('#' * self.__width) 
-        
+            print('#' * self.__width)
+
     def display(self):
-        """updated display method in the Rectangle class which prints
-        the rectangle with the character '#' while considering x and y""" 
-        
+        """prints the rectangle with the character #"""
+
         for _ in range(self.__y):
             print()
         for _ in range(self.__height):
@@ -92,8 +91,8 @@ class Rectangle(Base):
         if len(args) >= 4:
             self.x = args[3]
         if len(args) >= 5:
-           self.y = args[4]
-    
+            self.y = args[4]
+
     def update(self, *args, **kwargs):
         """updates method in Rectangle class to accept both positional
         arguments(*args) and keyword arguments(**kwargs)"""
@@ -105,7 +104,7 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-     
+
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle"""
         return {
@@ -115,12 +114,12 @@ class Rectangle(Base):
             'x': self.x,
             'y': self.y
         }
-    
+
     def __str__(self):
         """overrides the __str__ method"""
         return f"Rectangle ({self.id}) - {self.__width}/{self.__height}"
 
     def __str__(self):
         """updated __str__ method that returns the desired output"""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
-
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} \
+                - {self.width}/{self.height}"
