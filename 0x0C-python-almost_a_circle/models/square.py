@@ -2,6 +2,7 @@
 """This defines Square inherited from Rectangle"""
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """This defines the inherited Square from Rectangle"""
 
@@ -12,14 +13,14 @@ class Square(Rectangle):
 
     @property
     def size(self):
-        """public getter and setter size""" 
+        """public getter and setter size"""
         return self.width
 
     @size.setter
     def size(self, value):
         self.width = value
 
-    def update(self,* args, **kwargs):
+    def update(self, *args, **kwargs):
         """updates the Square and assigns attributes"""
         if args:
             attributes = ["id", "size", "x", "y"]
@@ -29,7 +30,7 @@ class Square(Rectangle):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-    
+
     def to_dictionary(self):
         """Returns the dictionary representation of a Square"""
         return {
