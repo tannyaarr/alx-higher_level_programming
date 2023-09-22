@@ -16,7 +16,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    @propety
+    @property
     def width(self):
         return self.__width
     
@@ -28,7 +28,7 @@ class Rectangle(Base):
             raise ValueError("Width must be > 0")
         self.__width = value
 
-    @propety
+    @property
     def height(self):
         return self.__height
 
@@ -40,8 +40,8 @@ class Rectangle(Base):
             raise ValueError("Height must be > 0")
         self.__height = value
 
-    @propety
-    def x(self, value):
+    @property
+    def x(self):
         return self.__x
 
     @x.setter
@@ -52,7 +52,7 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
-    @propety
+    @property
     def y(self):
         return self.__y
 
@@ -60,7 +60,7 @@ class Rectangle(Base):
     def y(self, value):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
-        if not value < 0:
+        if  value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
@@ -73,7 +73,7 @@ class Rectangle(Base):
             print('#' * self.__width) 
         
     def display(self):
-        """updated display method in the Rectnagle class which prints
+        """updated display method in the Rectangle class which prints
         the rectangle with the character '#' while considering x and y""" 
         
         for _ in range(self.__y):
@@ -86,7 +86,7 @@ class Rectangle(Base):
         if len(args) >= 1:
             self.id = args[0]
         if len(args) >= 2:
-            self.width = args[1])
+            self.width = args[1]
         if len(args) >= 3:
             self.height = args[2]
         if len(args) >= 4:
@@ -98,23 +98,22 @@ class Rectangle(Base):
         """updates method in Rectangle class to accept both positional
         arguments(*args) and keyword arguments(**kwargs)"""
         if args:
-            attributes  ["id", "width", "height", "x", "y"]
+            attributes = ["id", "width", "height", "x", "y"]
             for i, arg in enumerate(args):
                 if i < len(attributes):
                     setattr(self, attributes[i], arg)
-    else:
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
      
-     def to_dictionay(self):
-
+    def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle"""
         return {
             'id': self.id,
-            'width': self.__width,
-            'height': self.__height,
-            'x': self.__x,
-            'y': self.__y
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
         }
     
     def __str__(self):
@@ -123,5 +122,5 @@ class Rectangle(Base):
 
     def __str__(self):
         """updated __str__ method that returns the desired output"""
-        return f"[Rectangle] (self.id) {self.__x}{self.__y} - 
-        self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+
