@@ -7,4 +7,3 @@ def inherits_from(obj, a_class):
         inherited directly or indrectly from the specfied class"""
 
     return issubclass(type(obj), a_class) and type(obj) is not a_class
-
