@@ -5,9 +5,6 @@
 class MyList(list):
     """This represents MyList class"""
 
-    def __init__(self):
-        """Instatiation of MyList class"""
-        list.__init__(self)
-
     def print_sorted(self):
+        """Prints a list in sorted ascending order"""
         print(sorted(self))
