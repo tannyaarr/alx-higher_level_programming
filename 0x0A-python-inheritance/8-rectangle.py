@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3i
 """Defines the class BasedGeometry based on 7-base_geometry.py"""
 
 
@@ -31,7 +31,7 @@ class Rectangle(BaseGeometry):
     def __init__(self, width, height):
         """Initialization of width and height"""
 
-        self.__weight = 0
+        self.__width = 0
         self.__height = 0
         self.integer_validator("width", width)
         self.integer_validator("height", height)
