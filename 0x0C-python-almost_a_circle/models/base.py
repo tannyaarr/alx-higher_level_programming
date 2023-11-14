@@ -73,4 +73,4 @@ class Base:
                     instance.append(instance)
         except FileNotFoundError:
             pass
-        return instances
+        return instance`s
