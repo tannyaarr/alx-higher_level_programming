@@ -1,6 +1,6 @@
 -- lists all shows and all genres linked to that tv_show
 
-SELECT tv_shows.titles, tv_genres.name
+SELECT tv_shows.title, tv_genres.name
 FROM tv_shows
 LEFT JOIN tv_show_genres 
 ON tv_shows.id = tv_show_genres.show_id 
