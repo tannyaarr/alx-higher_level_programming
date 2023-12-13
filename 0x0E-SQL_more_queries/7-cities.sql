@@ -1,3 +1,4 @@
+-- creates database hbtn_0d_usa and table cities
 
 
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
