@@ -22,14 +22,14 @@ if __name__ == '__main__':
                 WHERE state_id = (
                 SELECT id
                 FROM states
-                WHERE name = '{}
+                WHERE name = '{}'
                 )
                 ORDER BY id
-            """format(state_name)
+            """.format(state_name)
     res = cursor.execute(query)
     rows = cursor.fetchall()
     city_names = ', '.join(row[0] for row in rows)
-        print(city_names)
+    print(city_names)
 
     cursor.close()
     conn.close()
