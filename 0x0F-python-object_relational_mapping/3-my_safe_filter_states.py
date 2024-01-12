@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-"""Takes in argument and displays all values in the states table"""
+"""Takes in argument and displays all values in the states table safe
+from mysql injection"""
 
 import MySQLdb
 import sys
@@ -19,7 +20,7 @@ if __name__ == "__main__":
     conn = MySQLdb.connect(host=ht, port=pt, user=usr, passwd=pwd, db=db)
 
     cursor = conn.cursor()
-    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id"
+    query = "SELECT * FROM states WHERE name = %s ORDER BY states.id"
     cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
 
