@@ -14,17 +14,17 @@ if __name__ == '__main__':
     pt = 3306
 
     conn = MySQLdb.connect(host=ht, user=usr, passwd=pwd, database=db, port=pt)
-    curs = conn.cursor()
+    cursor = conn.cursor()
     query = """SELECT c.id, c.name, s.name
                 FROM cities c
                 INNER JOIN states s
                 ON c.state_id = s.id
                 ORDER BY s.id
             """
-    res = curs.execute(query)
-    rows = curs.fetchall()
+    res = cursor.execute(query)
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
 
-    curs.close()
+    cursor.close()
     conn.close()
