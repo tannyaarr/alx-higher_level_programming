@@ -18,7 +18,7 @@ if __name__ == '__main__':
     cursor = conn.cursor()
 
     query = """SELECT name
-                FROM cities 
+                FROM cities
                 WHERE state_id = (
                 SELECT id
                 FROM states
