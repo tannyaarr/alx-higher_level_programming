@@ -12,7 +12,7 @@ if __name__ == "__main__":
     pwd = args[2]
     db = args[3]
     state_name = args[4]
-    ht  = "localhost"
+    ht = "localhost"
     pt = 3306
 
     conn = MySQLdb.connect(host=ht, user=usr, passwd=pwd, db=db, port=pt)
