@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Scripts prints the first State objects from database"""
+"""Script lists State objects containing the letter 'a' from the database"""
 
 import sys
 from sqlalchemy import create_engine
@@ -21,12 +21,9 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).first()
+    states_with_a = session.query(State).filter(State.name.ilike('%a%')).order_by(State.id).all()
 
-    if states:
-        print(f"{first_state.id}: {first_state_name}")
-    else:
-        print("Nothing")
+    for state in states_with_a:
+        print(f"{state.id}: {state.name}")
 
     session.close()
-~                     
