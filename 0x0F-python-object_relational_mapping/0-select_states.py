@@ -17,7 +17,7 @@ if __name__ == "__main__":
     conn = MySQLdb.connect(host=ht, port=pt, user=usr, passwd=pwd, databse=db)
 
     cursor = conn.cursor()
-    res = cursor.execute("SELECT * FROM states ORDER BY id")
+    cursor.execute("SELECT * FROM states ORDER BY states.id")
     rows = cursor.fetchall()
     for row in rows:
         prin(row)
