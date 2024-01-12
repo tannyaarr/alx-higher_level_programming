@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ht  = "localhost"
     pt = 3306
 
-    conn = MySQLdb.connect(host=ht, port=pt, user=usr, passwd=pwd, db=db)
+    conn = MySQLdb.connect(host=ht, user=usr, passwd=pwd, db=db, port=pt)
     cursor = conn.cursor()
     query = "SELECT * FROM states WHERE name = %s ORDER BY states.id"
     cursor.execute(query, (state_name,))
