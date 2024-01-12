@@ -10,7 +10,8 @@ if __name__ == "__main__":
         print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
         sys.exit(1)
 
-    usr, pwd, db, state_name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+    usr, pwd, db = sys.argv[1], sys.argv[2], sys.argv[3]
+    state_name = sys.argv[4]
     ht, pt = "localhost", 3306
 
     conn = MySQLdb.connect(host=ht, port=pt, user=usr, passwd=pwd, db=db)
