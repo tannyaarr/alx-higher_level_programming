@@ -5,29 +5,31 @@ import sys
 import MySQLdb
 
 if __name__ == '__main__':
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state>".format(sys.argv[0]))
-        sys.exit(1)
+    args = sys.argv
 
-    usr, pwd, db, state_name = sys.argv[1:5]
-    ht, pt = "localhost", 3306
+    usr = args[1]
+    pwd = args[2]
+    db = args[3]
+    state_name = args[4]
+    ht = "localhost"
+    pt = 3306
 
     conn = MySQLdb.connect(host=ht, user=usr, passwd=pwd, database=db, port=pt)
     cursor = conn.cursor()
 
-    query = """SELECT c.id, c.name, s.name
-                FROM cities c
-                INNER JOIN states s
-                ON c.state_id = s.id
-                WHERE s.name = %s
-                ORDER BY c.id
-            """
-    cursor.execute(query, (state_name,))
-
+    query = """SELECT name
+                FROM cities 
+                WHERE state_id = (
+                SELECT id
+                FROM states
+                WHERE name = '{}
+                )
+                ORDER BY id
+            """format(state_name)
+    res = cursor.execute(query)
     rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+    city_names = ', '.join(row[0] for row in rows)
+        print(city_names)
 
     cursor.close()
     conn.close()
-
