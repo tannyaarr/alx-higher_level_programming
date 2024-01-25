@@ -1,5 +1,3 @@
 #!/bin/bash
-# Script that takes in a url and sends a request and displays the size of the body reponse
-
-response=$(curl -s -o /dev/null -w "%{size_download}" $1)
-echo "The size of the reponse body is $reponse bytes."
+# Script that displays the size of the body reponse
+curl -sI "$1" | grep -i content-length | awk '{print $2}' | tr -d '\r'
