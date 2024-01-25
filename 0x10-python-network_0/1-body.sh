@@ -1,5 +1,9 @@
 #!/bin/bash
-# Script that sends a GET request to the URl
-url="$1"
-curl_output=$(curl -s -w "%{http_code}" "$1")
-[ "$(tail -c 4 <<< "$curl_output")" == "200" ] && echo "$(sed '$d' <<< "$curl_output")"
+# Script that sends a GET request to the URL
+response=$(curl -s -o /dev/null -w "%{http_code}" $1)
+if [ $response -eq 200 ]
+then
+    curl -s $1
+else
+    echo "Error: Response code $response"
+fi
