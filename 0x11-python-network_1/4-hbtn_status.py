@@ -5,11 +5,9 @@ import requests
 
 if __name__ == "__main__":
     url = 'https://alx-intranet.hbtn.io/status'
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        print("- Body response:")
-        print("\t- type:", type(response.text))
-        print("\t- content:", response.text)
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
+    response = requests.get(url)
+    response.encoding = 'utf-8'
+    print("- Body response:")
+    print("\t- type: {}".format(type(response.text)))
+    print("\t- content: {}".format(response.text))
+    print("\t- utf8 content: {}".format(response.text))
