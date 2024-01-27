@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""lists recent commits on a repository"""
 
 import requests
 import sys
