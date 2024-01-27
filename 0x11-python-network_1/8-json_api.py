@@ -12,8 +12,7 @@ if __name__ == "__main__":
     try:
         json_response = response.json()
         if json_response:
-            print("[{}] {}".format(json_response["id"], 
-                json_response["name"]))
+            print("[{}] {}".format(json_response["id"], json_response["name"]))
         else:
             print("No result")
     except ValueError:
