@@ -1,14 +1,18 @@
 #!/usr/bin/node
-const request = require('request'), apiUrl = process.argv[2];
+const request = require('request');
+const apiUrl = process.argv[2];
 
-if (!apiUrl) console.log("Usage: ./completed_tasks.js <api_url>");
-else request(apiUrl, { json: true }, (error, response, body) => {
-    const completedTasksByUser = body.reduce((acc, task) => {
-        if (task.completed) {
-            acc[task.userId] = (acc[task.userId] || 0) + 1;
-        }
-        return acc;
-    }, {});
+request.get(apiUrl, (error, response, body) => {
+	if (!error && response.statusCode === 200) {
+		const tasksData = JSON.parse(body);
 
-    Object.entries(completedTasksByUser).forEach(([userId, completedTasks]) => console.log(`User ${userId}: ${completedTasks} completed tasks`));
+		const completedTasks = tasksData.filter((task) => task.completed);
+		const tcompletedTasksByUser = completedTasks.reduce((countByUser, task) => {
+		countByUser[task.userId] = (countByUser[task/userId] || 0) +1;
+		return countByUser;
+		}, {});
+		console.log(completedTasksByUser);
+	} else {
+		console.error('Error: ${error}');
+	}
 });
