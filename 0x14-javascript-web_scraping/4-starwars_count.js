@@ -3,15 +3,19 @@ const request = require('request');
 
 const apiUrl = process.argv[2];
 
-if (!apiUrl) {
-  console.log('Usage: ./count_wedge_movies.js <api_url>');
-} else {
-  const characterId = 18;
+request(apiUrl, function (error, response, body) {
+  if (!error) {
+    // Parse the JSON response and extract movie results
+    const results = JSON.parse(body).results;
 
-  request.get(apiUrl, { json: true }, (error, response, body) => {
-    if (!error && response.statusCode === 200) {
-      const wedgeMovies = body.results.filter(movie => movie.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`));
-      console.log(wedgeMovies.length);
-    }
-  });
-}
+    // Count movies where character "Wedge Antilles" is present
+    const moviesWithWedge = results.reduce((count, movie) => {
+      return movie.characters.find((character) => character.endsWith('/18/'))
+        ? count + 1
+        : count;
+    }, 0);
+
+    // Print the count of movies
+    console.log(moviesWithWedge);
+  }
+});
