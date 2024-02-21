@@ -1,4 +1,14 @@
-const request = require('request'), movieId = process.argv[2];
+#!/usr/bin/node
 
-if (!movieId) console.log("Usage: ./get_movie_title.js <movie_id>");
-else request(`https://swapi-api.alx-tools.com/api/films/${movieId}`, { json: true }, (err, res, body) => console.log(body.title));
+const request = require('request');
+const movieId = process.argv[2];
+const apiUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
+
+request.get(apiUrl, (error, response, body) => {
+  if (!error && response.statusCode === 200) {
+    const movieData = JSON.parse(body);
+    console.log(movieData.title);
+  } else {
+    console.error(`Error: ${error}`);
+  }
+});
